@@ -19,6 +19,7 @@ class _LoginState extends State<Login> {
         margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Login",
@@ -27,10 +28,14 @@ class _LoginState extends State<Login> {
                 fontWeight: FontWeight.bold
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(height: 30.0,),
             TextField(
               decoration: InputDecoration(
-                labelText: "Email"
+                labelText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.black)
+                )
               ),
             ),
             SizedBox(height: 10.0,),

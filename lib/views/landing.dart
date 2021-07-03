@@ -11,50 +11,114 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
+
+  final landingSequence = [
+    {
+      'buttonText': 'Next',
+      'centerIllustration': UnDrawIllustration.product_hunt,
+      'title': 'Find what you want?'
+    },
+    {
+      'buttonText': 'Next',
+      'centerIllustration': UnDrawIllustration.add_to_cart,
+      'title': 'Set a goal!'
+    },
+    {
+      'buttonText': 'Get Started',
+      'centerIllustration': UnDrawIllustration.savings,
+      'title': 'Start saving'
+    },
+  ];
+
+  int _currentIndex = 0;
+
+  void moveToNext() {
+    if (_currentIndex+1 < landingSequence.length) {
+        setState(() {
+        _currentIndex = _currentIndex + 1;
+      });
+    } else {
+      Navigator.of(context).pushNamed('/login');
+    }
+    
+  }
   
   @override
   Widget build(BuildContext context) {
 
-    final size = MediaQuery.of(context).size;
+    var currDetails = landingSequence[_currentIndex];
 
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                height: size.height*0.3,
-                child: UnDraw(
-                  color: const Color(0xff43c59e),
-                  illustration: UnDrawIllustration.gift_box
-                ),
-              ),
-              MaterialButton(
-                height: 60,
-                elevation: 10.0,
-                onPressed: () => Navigator.pushNamed(context, '/login'),
-                color: const Color(0xff43c59e),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.arrow_forward),
-                    SizedBox(width: 10.0,),
-                    Text(
-                      "Get Started",
-                      style: GoogleFonts.montserratAlternates(
-                        color: Colors.white,
-                        fontSize: 20
-                      ),
-                    )
-                  ],
-                )
-              )
-            ],
-          ),
+        child: LandingLayout(
+          title: currDetails['title'],
+          centerIllustration: currDetails['centerIllustration'],
+          buttonText: currDetails['buttonText'],
+          changeFunc: moveToNext,
         ),
+      ),
+    );
+  }
+}
+
+class LandingLayout extends StatelessWidget {
+
+  final buttonText;
+  final centerIllustration;
+  final title;
+  final changeFunc;
+
+  const LandingLayout({
+    Key? key, 
+    required this.buttonText, 
+    required this.centerIllustration, 
+    required this.title, 
+    required this.changeFunc
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    final Size size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.montserratAlternates(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: size.width*0.3),
+          Container(
+            height: size.height*0.3,
+            child: UnDraw(
+              color: const Color(0xff1f727a),
+              illustration: centerIllustration
+            ),
+          ),
+          SizedBox(height: size.width*0.3),
+          MaterialButton(
+            minWidth: size.width*0.8,
+            height: 60,
+            elevation: 10.0,
+            onPressed: changeFunc,
+            color: const Color(0xff1f727a),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            child: Text(
+              buttonText,
+              style: GoogleFonts.montserratAlternates(
+                color: Colors.white,
+                fontSize: 20
+              ),
+            )
+          )
+        ],
       ),
     );
   }
