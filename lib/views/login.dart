@@ -76,7 +76,7 @@ class _LoginState extends State<Login> {
                   ),
                   Divider(
                     color: Colors.black,
-                    height: 20.0,
+                    height: 40.0,
                   ),
                   MaterialButton(
                     onPressed: () {},
@@ -94,9 +94,22 @@ class _LoginState extends State<Login> {
                         )
                       ],
                     ),
-
-
-                  )
+                  ),
+                  SizedBox(height: 10.0,),
+                  TextButton(
+                    onPressed: () {}, 
+                    child: Text(
+                      "Forgot Password",
+                      style: GoogleFonts.montserratAlternates(),
+                    )
+                  ),
+                  TextButton(
+                    onPressed: () {}, 
+                    child: Text(
+                      "Register",
+                      style: GoogleFonts.montserratAlternates(),
+                    )
+                  ),
                 ],
               ),
             ),
