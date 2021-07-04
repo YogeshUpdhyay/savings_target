@@ -108,7 +108,7 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: 10.0,),
                   TextButton(
-                    onPressed: () => Navigator.of(context).pushNamed('/signup'), 
+                    onPressed: () => Navigator.of(context).pop(), 
                     child: Text(
                       "Register",
                       style: GoogleFonts.montserratAlternates(
