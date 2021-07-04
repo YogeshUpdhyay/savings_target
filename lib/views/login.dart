@@ -101,14 +101,19 @@ class _LoginState extends State<Login> {
                     onPressed: () {}, 
                     child: Text(
                       "Forgot Password",
-                      style: GoogleFonts.montserratAlternates(),
+                      style: GoogleFonts.montserratAlternates(
+                        fontSize: 16
+                      ),
                     )
                   ),
+                  SizedBox(height: 10.0,),
                   TextButton(
                     onPressed: () => Navigator.of(context).pushNamed('/signup'), 
                     child: Text(
                       "Register",
-                      style: GoogleFonts.montserratAlternates(),
+                      style: GoogleFonts.montserratAlternates(
+                        fontSize: 16
+                      ),
                     )
                   ),
                 ],

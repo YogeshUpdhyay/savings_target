@@ -36,7 +36,8 @@ class _SignUpState extends State<SignUp> {
                     "Sign Up",
                     style: GoogleFonts.montserratAlternates(
                       color: Colors.black,
-                      fontSize: 32
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   SizedBox(height: 30.0,),
@@ -105,6 +106,16 @@ class _SignUpState extends State<SignUp> {
                         )
                       ],
                     ),
+                  ),
+                  SizedBox(height: 10.0,),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pushNamed('/login'), 
+                    child: Text(
+                      "Login",
+                      style: GoogleFonts.montserratAlternates(
+                        fontSize: 16
+                      ),
+                    )
                   ),
                 ],
               ),
