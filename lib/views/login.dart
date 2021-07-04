@@ -51,6 +51,7 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: 10.0,),
                   TextField(
+                    obscureText: true,
                     decoration: InputDecoration(
                       labelText: "Password",
                       border: OutlineInputBorder(
@@ -104,7 +105,7 @@ class _LoginState extends State<Login> {
                     )
                   ),
                   TextButton(
-                    onPressed: () {}, 
+                    onPressed: () => Navigator.of(context).pushNamed('/signup'), 
                     child: Text(
                       "Register",
                       style: GoogleFonts.montserratAlternates(),
