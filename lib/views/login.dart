@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
@@ -16,58 +17,89 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            Text(
-              "Login",
-              style: GoogleFonts.montserratAlternates(
-                fontSize: 32,
-                fontWeight: FontWeight.bold
+            Positioned(
+              bottom: 0,
+              child: Image.asset(
+                "assets/img/bottomDrop.png",
+                width: size.width,
               ),
             ),
-            SizedBox(height: 30.0,),
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: Colors.black)
-                )
-              ),
-            ),
-            SizedBox(height: 10.0,),
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: Colors.black)
-                )
-              ),
-            ),
-            SizedBox(height: 20.0,),
-            MaterialButton(
-              onPressed: () {},
-              color: const Color(0xff43c59e),
-              height: 50,
-              child: Row(
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.login),
-                  SizedBox(width: 10.0,),
                   Text(
-                    "Submit",
+                    "Login",
                     style: GoogleFonts.montserratAlternates(
-                      color: Colors.white,
-                      fontSize: 18
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold
                     ),
+                  ),
+                  SizedBox(height: 30.0,),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Colors.black)
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 10.0,),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Colors.black)
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 20.0,),
+                  MaterialButton(
+                    onPressed: () {},
+                    color: const Color(0xff43c59e),
+                    height: 50,
+                    minWidth: size.width*0.8,
+                    elevation: 10.0,
+                    child: Text(
+                      "Submit",
+                      style: GoogleFonts.montserratAlternates(
+                        color: Colors.white,
+                        fontSize: 18
+                      ),
+                    )
+                  ),
+                  Divider(
+                    color: Colors.black,
+                    height: 20.0,
+                  ),
+                  MaterialButton(
+                    onPressed: () {},
+                    minWidth: size.width*0.8,
+                    height: 50,
+                    color: Colors.white70,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FaIcon(FontAwesomeIcons.google),
+                        SizedBox(width: 20.0,),
+                        Text(
+                          "Sign In with Google",
+                          style: GoogleFonts.montserratAlternates(),
+                        )
+                      ],
+                    ),
+
+
                   )
                 ],
               ),
-            )
+            ),
           ],
         )
       ),
