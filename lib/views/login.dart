@@ -41,10 +41,14 @@ class _LoginState extends State<Login> {
             SizedBox(height: 10.0,),
             TextField(
               decoration: InputDecoration(
-                labelText: "Password"
+                labelText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.black)
+                )
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(height: 20.0,),
             MaterialButton(
               onPressed: () {},
               color: const Color(0xff43c59e),
