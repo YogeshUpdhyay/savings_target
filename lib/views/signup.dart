@@ -73,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: 20.0,),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pushNamed("/"),
                     color: const Color(0xff43c59e),
                     height: 50,
                     minWidth: size.width*0.8,
@@ -109,7 +109,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: 10.0,),
                   TextButton(
-                    onPressed: () => Navigator.of(context).pushNamed('/login'), 
+                    onPressed: () => Navigator.of(context).pop(), 
                     child: Text(
                       "Login",
                       style: GoogleFonts.montserratAlternates(

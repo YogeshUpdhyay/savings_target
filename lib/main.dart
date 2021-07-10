@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saving_traget/views/index.dart';
 import 'package:saving_traget/views/landing.dart';
 import 'package:saving_traget/views/login.dart';
 import 'package:saving_traget/views/signup.dart';
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green
       ),
       routes: {
-        '/': (context) => Landing(),
+        '/landing': (context) => Landing(),
         '/login': (context) => Login(),
-        '/signup': (context) => SignUp()
+        '/signup': (context) => SignUp(),
+        '/': (context) => Index()
       },
       initialRoute: '/',
     );
