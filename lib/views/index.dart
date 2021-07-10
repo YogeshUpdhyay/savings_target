@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 class Index extends StatefulWidget {
   const Index({ Key? key }) : super(key: key);
@@ -48,31 +49,134 @@ class _IndexState extends State<Index> {
                   ),
                   SizedBox(height: 30.0,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              width: size.width*0.45,
-                              height: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.0),
-                                color: Colors.lightGreenAccent
-                              ),
-                              child: Text("Wishlist"),
-                              
+                      Column(
+                        children: [
+                          GlassmorphicContainer(
+                            width: size.width*0.425,
+                            height: size.height*0.3,
+                            borderRadius: 20,
+                            blur: 20,
+                            alignment: Alignment.bottomCenter,
+                            border: 2,
+                            linearGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff1f727a).withOpacity(0.1),
+                                Color(0xff43c59e).withOpacity(0.05),
+                              ],
+                              stops: [
+                                0.1,
+                                1,
+                              ]
                             ),
-                            Text("Current Value")
-                          ],
-                        ),
+                            borderGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFffffff).withOpacity(0.5),
+                                Color((0xFFFFFFFF)).withOpacity(0.5),
+                              ],
+                            ),
+                            child: Text("Current Targets")
+                          ),
+                          SizedBox(height: 5.0,),
+                          GlassmorphicContainer(
+                            width: size.width*0.425,
+                            height: size.height*0.2,
+                            borderRadius: 20,
+                            blur: 20,
+                            alignment: Alignment.bottomCenter,
+                            border: 2,
+                            linearGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff1f727a).withOpacity(0.1),
+                                Color(0xff43c59e).withOpacity(0.05),
+                              ],
+                              stops: [
+                                0.1,
+                                1,
+                              ]
+                            ),
+                            borderGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFffffff).withOpacity(0.5),
+                                Color((0xFFFFFFFF)).withOpacity(0.5),
+                              ],
+                            ),
+                            child: Text("Current Targets")
+                          ),
+                        ],
                       ),
-                      Container(
-                        width: size.width*0.45,
-                        child: Column(
-                          children: [
-                            Text("Current Targets"),
-                          ],
-                        ),
+                      SizedBox(width: 5.0,),
+                      Column(
+                        children: [
+                          GlassmorphicContainer(
+                            width: size.width*0.425,
+                            height: size.height*0.2,
+                            borderRadius: 20,
+                            blur: 20,
+                            alignment: Alignment.bottomCenter,
+                            border: 2,
+                            linearGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff1f727a).withOpacity(0.1),
+                                Color(0xff43c59e).withOpacity(0.05),
+                              ],
+                              stops: [
+                                0.1,
+                                1,
+                              ]
+                            ),
+                            borderGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFffffff).withOpacity(0.5),
+                                Color((0xFFFFFFFF)).withOpacity(0.5),
+                              ],
+                            ),
+                            child: Text("Current Targets")
+                          ),
+                          SizedBox(height: 5.0,),
+                          GlassmorphicContainer(
+                            width: size.width*0.425,
+                            height: size.height*0.3,
+                            borderRadius: 20,
+                            blur: 20,
+                            alignment: Alignment.bottomCenter,
+                            border: 2,
+                            linearGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff1f727a).withOpacity(0.1),
+                                Color(0xff43c59e).withOpacity(0.05),
+                              ],
+                              stops: [
+                                0.1,
+                                1,
+                              ]
+                            ),
+                            borderGradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFffffff).withOpacity(0.5),
+                                Color((0xFFFFFFFF)).withOpacity(0.5),
+                              ],
+                            ),
+                            child: Text("Current Targets")
+                          ),
+                        ],
                       )
                     ],
                   )
