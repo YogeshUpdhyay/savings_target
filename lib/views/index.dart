@@ -16,49 +16,70 @@ class _IndexState extends State<Index> {
 
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.fromLTRB(size.width*0.05, 20, size.width*0.05, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Hello, Yogesh",
-                style: GoogleFonts.montserratAlternates(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              child: Container(
+                child: Image.asset(
+                  "assets/img/topCorner.png",
+                  width: size.width,
                 ),
               ),
-              SizedBox(height: 5.0,),
-              Text(
-                "Happy Savings!",
-                style: GoogleFonts.montserratAlternates(
-                  fontSize: 16
-                ),
-              ),
-              SizedBox(height: 10.0,),
-              Row(
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(size.width*0.05, 20, size.width*0.05, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: size.width*0.45,
-                    child: Column(
-                      children: [
-                        Text("Widhlist"),
-                        Text("Current Value")
-                      ],
+                  Text(
+                    "Hello, Yogesh",
+                    style: GoogleFonts.montserratAlternates(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    width: size.width*0.45,
-                    child: Column(
-                      children: [
-                        Text("Current Targets"),
-                      ],
+                  SizedBox(height: 5.0,),
+                  Text(
+                    "Happy Savings!",
+                    style: GoogleFonts.montserratAlternates(
+                      fontSize: 16
                     ),
+                  ),
+                  SizedBox(height: 30.0,),
+                  Row(
+                    children: [
+                      Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: size.width*0.45,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.0),
+                                color: Colors.lightGreenAccent
+                              ),
+                              child: Text("Wishlist"),
+                              
+                            ),
+                            Text("Current Value")
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: size.width*0.45,
+                        child: Column(
+                          children: [
+                            Text("Current Targets"),
+                          ],
+                        ),
+                      )
+                    ],
                   )
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );
