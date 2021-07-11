@@ -118,67 +118,70 @@ class _IndexState extends State<Index> {
                       SizedBox(width: 5.0,),
                       Column(
                         children: [
+                          SavingsTile(size: size),
+                          SizedBox(height: 5.0,),
                           GlassContainer(
                             size: size,
+                            heightPercentage: 0.3,
                             widthPercentage: 0.425,
-                            heightPercentage: 0.2,
                             child: Container(
                               margin: EdgeInsets.all(20.0),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
                                     children: [
-                                      FaIcon(FontAwesomeIcons.piggyBank),
+                                      FaIcon(FontAwesomeIcons.bullseye),
                                       SizedBox(width: 5.0,),
                                       Text(
-                                        "Savings",
+                                        "Targets",
                                         style: GoogleFonts.montserratAlternates(
                                           fontSize: 20
                                         ),
-                                      ),
+                                      )
                                     ],
                                   ),
-                                  SizedBox(height: 8.0,),
-                                  Text(
-                                    "\u20B9 4,315",
-                                    style: GoogleFonts.montserratAlternates(
-                                      fontSize: 26
-                                    ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            "\u20B9",
+                                            textAlign: TextAlign.left,
+                                            style: GoogleFonts.montserratAlternates(
+                                              fontSize: 26
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            "200/\n8000",
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.montserratAlternates(
+                                              fontSize: 26
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {}, 
+                                        icon: FaIcon(FontAwesomeIcons.plusSquare)
+                                      ),
+                                      SizedBox(width: 10.0,),
+                                    ],
                                   )
                                 ],
                               ),
                             ),
-                          ),
-                          SizedBox(height: 5.0,),
-                          GlassmorphicContainer(
-                            width: size.width*0.425,
-                            height: size.height*0.3,
-                            borderRadius: 20,
-                            blur: 20,
-                            alignment: Alignment.bottomCenter,
-                            border: 2,
-                            linearGradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color(0xff1f727a).withOpacity(0.1),
-                                Color(0xff43c59e).withOpacity(0.05),
-                              ],
-                              stops: [
-                                0.1,
-                                1,
-                              ]
-                            ),
-                            borderGradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color(0xFFffffff).withOpacity(0.5),
-                                Color((0xFFFFFFFF)).withOpacity(0.5),
-                              ],
-                            ),
-                            child: Text("Current Targets")
                           ),
                         ],
                       )
@@ -194,15 +197,71 @@ class _IndexState extends State<Index> {
   }
 }
 
-class GlassContainer extends StatelessWidget {
-  const GlassContainer({
+class SavingsTile extends StatelessWidget {
+  const SavingsTile({
     Key? key,
-    required this.size, this.widthPercentage, this.heightPercentage, required this.child,
+    required this.size,
   }) : super(key: key);
 
   final Size size;
-  final widthPercentage;
-  final heightPercentage;
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassContainer(
+      size: size,
+      widthPercentage: 0.425,
+      heightPercentage: 0.2,
+      child: Container(
+        margin: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                FaIcon(FontAwesomeIcons.piggyBank),
+                SizedBox(width: 5.0,),
+                Text(
+                  "Savings",
+                  style: GoogleFonts.montserratAlternates(
+                    fontSize: 20
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10.0,),
+            Text(
+              "\u20B9 4,315",
+              style: GoogleFonts.montserratAlternates(
+                fontSize: 26
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Center(
+              child: IconButton(
+                onPressed: () {}, 
+                icon: FaIcon(FontAwesomeIcons.arrowAltCircleRight),
+                iconSize: 32,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GlassContainer extends StatelessWidget {
+  const GlassContainer({
+    Key? key,
+    required this.size, 
+    required this.widthPercentage, 
+    required this.heightPercentage, 
+    required this.child,
+  }) : super(key: key);
+
+  final Size size;
+  final double widthPercentage;
+  final double heightPercentage;
   final Widget child;
 
   @override
