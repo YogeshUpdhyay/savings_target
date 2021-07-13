@@ -116,6 +116,37 @@ class ExpenseTile extends StatelessWidget {
               style: GoogleFonts.montserratAlternates(
                 fontSize: 26
               ),
+            ),
+            SizedBox(height: 5.0,),
+            Text(
+              "out of 25000",
+              style: GoogleFonts.montserratAlternates(
+                fontSize: 16,
+                color: Colors.grey
+              ),
+            ),
+            SizedBox(height: 10.0,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: FaIcon(FontAwesomeIcons.minusSquare),
+                  iconSize: 32,
+                ),
+                SizedBox(width: 10.0,),
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.plusSquare),
+                  onPressed: () {},
+                  iconSize: 32,
+                )
+              ],
+            ),
+            SizedBox(height: 5.0,),
+            IconButton(
+              onPressed: () {}, 
+              icon: FaIcon(FontAwesomeIcons.arrowCircleRight),
+              iconSize: 32,
             )
           ],
         ),
