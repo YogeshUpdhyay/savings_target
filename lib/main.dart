@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => SignUp(),
         '/': (context) => Index()
       },
-      initialRoute: '/',
+      initialRoute: '/landing',
     );
   }
 }

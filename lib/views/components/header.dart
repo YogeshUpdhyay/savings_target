@@ -14,6 +14,10 @@ class Header extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconButton(
+            onPressed: () {},
+            icon: FaIcon(FontAwesomeIcons.cog),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,10 +37,6 @@ class Header extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: () {},
-            icon: FaIcon(FontAwesomeIcons.cog),
-          )
         ],
       ),
     );
