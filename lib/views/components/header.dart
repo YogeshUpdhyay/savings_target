@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Header extends StatelessWidget {
+
+  final openDrawer;
+  
   const Header({
-    Key? key,
+    Key? key, required this.openDrawer,
   }) : super(key: key);
 
   @override
@@ -15,7 +18,7 @@ class Header extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: openDrawer,
             icon: FaIcon(FontAwesomeIcons.cog),
           ),
           Column(

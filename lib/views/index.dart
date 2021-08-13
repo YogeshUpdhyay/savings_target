@@ -10,12 +10,16 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
         child: Stack(
           children: [
@@ -33,7 +37,9 @@ class _IndexState extends State<Index> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Header(),
+                  Header(
+                    openDrawer: () => _scaffoldKey.currentState!.openDrawer(),
+                  ),
                   SizedBox(height: 30.0,),
                   TilesSection(size: size)
                 ],
@@ -42,6 +48,13 @@ class _IndexState extends State<Index> {
           ],
         ),
       ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.transparent,
+          child: Text("This is the drawer")
+        ),
+      ),
+      drawerScrimColor: Colors.transparent,
     );
   }
 }
