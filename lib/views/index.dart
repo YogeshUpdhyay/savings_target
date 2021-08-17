@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saving_traget/views/components/header.dart';
+import 'package:saving_traget/views/components/indexDrawer.dart';
 import 'package:saving_traget/views/components/tilessection.dart';
 
 class Index extends StatefulWidget {
@@ -48,12 +49,13 @@ class _IndexState extends State<Index> {
           ],
         ),
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.transparent,
-          child: Text("This is the drawer")
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: Container(
+      //     color: Colors.transparent,
+      //     child: Text("This is the drawer")
+      //   ),
+      // ),
+      drawer: getDrawer(context),
       drawerScrimColor: Colors.transparent,
     );
   }
