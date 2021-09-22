@@ -35,7 +35,7 @@ class Header extends StatelessWidget {
               Text(
                 "Happy Savings!",
                 style: GoogleFonts.montserratAlternates(
-                  fontSize: 16
+                  fontSize: 20
                 ),
               ),
             ],

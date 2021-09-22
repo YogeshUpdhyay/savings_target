@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:saving_traget/views/components/header.dart';
 import 'package:saving_traget/views/components/indexDrawer.dart';
+import 'package:saving_traget/views/components/targets.dart';
 import 'package:saving_traget/views/components/tilessection.dart';
 
 class Index extends StatefulWidget {
@@ -42,24 +44,21 @@ class _IndexState extends State<Index> {
                     openDrawer: () => _scaffoldKey.currentState!.openDrawer(),
                   ),
                   SizedBox(height: 30.0,),
-                  TilesSection(size: size)
+                  TilesSection(size: size),
+                  Targets()
                 ],
               ),
             ),
           ],
         ),
       ),
-      // drawer: Drawer(
-      //   child: Container(
-      //     color: Colors.transparent,
-      //     child: Text("This is the drawer")
-      //   ),
-      // ),
       drawer: getDrawer(context),
       drawerScrimColor: Colors.transparent,
     );
   }
 }
+
+
 
 
 

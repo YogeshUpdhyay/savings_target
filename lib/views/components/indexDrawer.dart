@@ -1,6 +1,3 @@
-
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +9,16 @@ Widget getDrawer(context) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          ListTile(
+            title: Text(
+              "Account",
+              style: GoogleFonts.montserratAlternates(
+                fontSize: 16
+              ),
+            ),
+            leading: FaIcon(FontAwesomeIcons.user),
+            onTap: () => print("Account"),
+          ),
           Divider(
             color: Colors.black,
             height: 10.0,
