@@ -1,7 +1,11 @@
-
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:ms_undraw/ms_undraw.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:saving_traget/theme.dart';
+import 'package:saving_traget/views/components/landingSeqOne.dart';
+import 'package:saving_traget/views/components/landingSeqThree.dart';
+import 'package:saving_traget/views/components/landingSeqTwo.dart';
 
 class Landing extends StatefulWidget {
   const Landing({ Key? key }) : super(key: key);
@@ -12,112 +16,94 @@ class Landing extends StatefulWidget {
 
 class _LandingState extends State<Landing> {
 
-  final landingSequence = [
-    {
-      'buttonText': 'Next',
-      'centerIllustration': UnDrawIllustration.product_hunt,
-      'title': 'Find what you want?'
-    },
-    {
-      'buttonText': 'Next',
-      'centerIllustration': UnDrawIllustration.add_to_cart,
-      'title': 'Set a goal!'
-    },
-    {
-      'buttonText': 'Get Started',
-      'centerIllustration': UnDrawIllustration.savings,
-      'title': 'Start saving'
-    },
-  ];
+  int page = 0;
+  late LiquidController liquidController;
 
-  int _currentIndex = 0;
-
-  void moveToNext() {
-    if (_currentIndex+1 < landingSequence.length) {
-        setState(() {
-        _currentIndex = _currentIndex + 1;
-      });
-    } else {
-      Navigator.of(context).pushNamed('/login');
-    }
-    
-  }
-  
-  @override
-  Widget build(BuildContext context) {
-
-    var currDetails = landingSequence[_currentIndex];
-
-    return Scaffold(
-      body: SafeArea(
-        child: LandingLayout(
-          title: currDetails['title'],
-          centerIllustration: currDetails['centerIllustration'],
-          buttonText: currDetails['buttonText'],
-          changeFunc: moveToNext,
+  Widget _buildDot(int index) {
+    double selectedness = Curves.easeOut.transform(
+      max(
+        0.0,
+        1.0 - ((page) - index).abs(),
+      ),
+    );
+    double zoom = 1.0 + (2.0 - 1.0) * selectedness;
+    return new Container(
+      width: 25.0,
+      child: new Center(
+        child: new Material(
+          color: Colors.black,
+          type: MaterialType.circle,
+          child: new Container(
+            width: 8.0 * zoom,
+            height: 8.0 * zoom,
+          ),
         ),
       ),
     );
   }
-}
 
-class LandingLayout extends StatelessWidget {
+  @override
+  void initState() {
+    liquidController = LiquidController();
+    super.initState();
+  }
 
-  final buttonText;
-  final centerIllustration;
-  final title;
-  final changeFunc;
-
-  const LandingLayout({
-    Key? key, 
-    required this.buttonText, 
-    required this.centerIllustration, 
-    required this.title, 
-    required this.changeFunc
-  }) : super(key: key);
+  pageChangeCallback(int lpage) {
+    print(lpage);
+    setState(() {
+      page = lpage;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppTheme.primaryColor,
+      body: Stack(
+        children: <Widget>[
+          LiquidSwipe(
+            pages: <Widget>[
+              LandingSeqOne(),
+              LandingSeqTwo(),
+              LandingSeqThree()
+            ],
+            slideIconWidget: FaIcon(FontAwesomeIcons.chevronLeft),
+            waveType: WaveType.liquidReveal,
+            liquidController: liquidController,
+            onPageChangeCallback: pageChangeCallback,
+            enableSideReveal: true,
+            ignoreUserGestureWhileAnimating: true,
+            enableLoop: false,
+          ),
 
-    final Size size = MediaQuery.of(context).size;
-
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: size.width*0.1),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.montserratAlternates(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: EdgeInsets.all(30),
+            child: Column(
+              children: <Widget>[
+                Expanded(child: SizedBox()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(3, _buildDot),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: size.width*0.3),
-          Container(
-            height: size.height*0.3,
-            child: UnDraw(
-              color: const Color(0xff1f727a),
-              illustration: centerIllustration
-            ),
-          ),
-          SizedBox(height: size.width*0.3),
-          MaterialButton(
-            minWidth: size.width*0.8,
-            height: 60,
-            elevation: 10.0,
-            onPressed: changeFunc,
-            color: const Color(0xff1f727a),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-            child: Text(
-              buttonText,
-              style: GoogleFonts.montserratAlternates(
-                color: Colors.white,
-                fontSize: 20
-              ),
-            )
-          )
+
+          // Align(
+          //   alignment: Alignment.topRight,
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(25.0),
+          //     child: TextButton(
+          //       onPressed: () {
+          //         liquidController.animateToPage(
+          //           page: 2, 
+          //           duration: 700
+          //         );
+          //       },
+          //       child: Text("Skip")
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
