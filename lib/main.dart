@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saving_traget/views/index.dart';
+// import 'package:saving_traget/views/index.dart';
 import 'package:saving_traget/views/landing.dart';
 import 'package:saving_traget/views/login.dart';
 import 'package:saving_traget/views/signup.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         '/landing': (context) => Landing(),
         '/login': (context) => Login(),
         '/signup': (context) => SignUp(),
-        '/': (context) => Index()
+        // '/': (context) => Index()
       },
       initialRoute: '/landing',
     );
