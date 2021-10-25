@@ -6,6 +6,7 @@ class AppTheme {
   static Color primaryColor = const Color(0xffdfe7fd);
   static Color primaryTextColor = const Color(0xff2b2d42);
   static Color secondaryColor = const Color(0xff3D5A80);
+  static Color primaryDarkColor = const Color(0xff0096c7);
 
   static TextStyle headingTextStyle = GoogleFonts.montserrat(
     fontSize: 36,
