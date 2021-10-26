@@ -19,7 +19,7 @@ class LandingSeqTwo extends StatelessWidget {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          color: AppTheme.primaryDarkColor,
+          color: AppTheme.primaryDarkColor.withOpacity(0.5),
           image: DecorationImage(
             image: AssetImage("assets/img/landing-seq-backdrop.png"),
             fit: BoxFit.cover
